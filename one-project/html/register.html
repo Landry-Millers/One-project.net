@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - One Project</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">One Project</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="login.html">Connexion</a></li>
+                <li><a href="about.html" class="nav-active">À propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero auth-hero">
+        <div class="auth-card">
+            <h1><i class="fas fa-user-plus"></i> Créer un compte</h1>
+            
+            <form class="auth-form" action="../backend/register.php" method="POST">
+                <div class="input-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" placeholder="Landry Millers" required>
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="votre@email.com" required>
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirmer le mot de passe</label>
+                    <input type="password" id="confirm-password" placeholder="••••••••" required>
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+
+                <div class="auth-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required> J'accepte les <a href="#" class="text-link">conditions d'utilisation</a>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-auth">S'inscrire</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Déjà un compte ? <a href="login.html" class="text-link">Se connecter</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <h2>Planification </h2>
+            <p>Organisez vos tâches facilement</p>
+        </div>
+        <div class="feature">
+            <h2>Visualisez</h2>
+            <p>Garder un oeil sur tous les projet avec une vue globale</p>
+        </div>
+        <div class="feature">
+            <h2>Suivi de progrès</h2>
+            <p>Gardez un œil sur l'avancement grâce aux tableaux de bord.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>One Project</h3>
+                <p>Simplifiez la gestion de vos projets.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html" class="nav-active">À propos</a></li>
+                    <li><a href="contact.html" class="nav-active">Contactez-nous</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>One-project@gmail.com</p>
+                <p>+261 34 68 775 68</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 One Project. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.auth-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.querySelector('.btn-auth');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connexion en cours...';
+            btn.disabled = true;
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if(!email || !password) {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                alert('Veuillez remplir tous les champs');
+                return;
+            }
+            
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - One Project</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar dashboard-nav">
+            <div class="logo">One Project</div>
+            <div class="nav-right">
+                <div class="search-bar-container">
+                    <input type="text" id="globalSearch" placeholder="Rechercher projets, tâches, membres..." class="global-search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="user-menu">
+                    <img src="../assets/images/avatar.jpg" alt="Avatar" class="user-avatar">
+                    <span>John Doe</span>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Profil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+                        <a href="login.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="active"><a href="#"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
+            <li><a href="#"><i class="fas fa-tasks"></i> <span>Mes Tâches</span></a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i> <span>Mes Projets</span></a></li>
+            <li><a href="#"><i class="fas fa-users"></i> <span>Équipe</span></a></li>
+            <li><a href="#"><i class="fas fa-chart-line"></i> <span>Rapports</span></a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> <span>Paramètres</span></a></li>
+        </ul>
+    </aside>
+
+    <main class="dashboard-content">
+        <div class="welcome-banner">
+            <h1>Bienvenue, John Doe!</h1>
+            <p>Commencez par créer un nouveau projet ou consultez vos tâches du jour.</p>
+        </div>
+
+        <div class="widgets-grid">
+            <div class="widget card-projects">
+                <div class="widget-header">
+                    <h2><i class="fas fa-project-diagram"></i> Mes Projets</h2>
+                    <button class="btn-new-project"><i class="fas fa-plus"></i> Nouveau Projet</button>
+                </div>
+                <div class="project-list" id="projectList">
+                    <div class="project-item" data-project-id="1">
+                        <h3>Refonte du Site Web</h3>
+                        <div class="progress-bar" style="--progress: 75%;"><span>75%</span></div>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 15/07/2025</span>
+                            <span><i class="fas fa-user-friends"></i> 5 Membres</span>
+                        </div>
+                    </div>
+                    <div class="project-item" data-project-id="2">
+                        <h3>Application Mobile V2</h3>
+                        <div class="progress-bar" style="--progress: 40%;"><span>40%</span></div>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 30/09/2025</span>
+                            <span><i class="fas fa-user-friends"></i> 3 Membres</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-view-all">Voir tous les projets</a>
+            </div>
+
+            <div class="widget card-tasks">
+                <div class="widget-header">
+                    <h2><i class="fas fa-tasks"></i> Mes Tâches</h2>
+                    <button class="btn-new-task"><i class="fas fa-plus"></i> Nouvelle Tâche</button>
+                </div>
+                <ul class="task-list" id="taskList">
+                    <li class="task-item" data-task-id="t1">
+                        <input type="checkbox" id="task1" class="task-checkbox">
+                        <label for="task1">Préparer la réunion client</label>
+                        <span class="task-project">Projet: Refonte Site</span>
+                        <span class="task-due-date"><i class="far fa-calendar-alt"></i> Aujourd'hui</span>
+                        <div class="task-actions">
+                            <button class="edit-task-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-task-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </li>
+                    <li class="task-item" data-task-id="t2">
+                        <input type="checkbox" id="task2" class="task-checkbox">
+                        <label for="task2">Réviser les wireframes</label>
+                        <span class="task-project">Projet: App Mobile V2</span>
+                        <span class="task-due-date"><i class="far fa-calendar-alt"></i> 22/05/2025</span>
+                        <div class="task-actions">
+                            <button class="edit-task-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-task-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </li>
+                    <li class="task-item completed" data-task-id="t3">
+                        <input type="checkbox" id="task3" class="task-checkbox" checked>
+                        <label for="task3">Envoyer le rapport mensuel</label>
+                        <span class="task-project">Projet: Interne</span>
+                        <span class="task-due-date"><i class="far fa-calendar-alt"></i> Hier</span>
+                        <div class="task-actions">
+                            <button class="edit-task-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-task-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#" class="btn-view-all">Voir toutes les tâches</a>
+            </div>
+
+            <div class="widget card-stats">
+                <h2><i class="fas fa-chart-pie"></i> Statistiques</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Projets Actifs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">85</div>
+                        <div class="stat-label">Tâches Terminées</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Membres Équipe</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Projets en Retard</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget card-activity">
+                <h2><i class="fas fa-history"></i> Activités Récentes</h2>
+                <ul class="activity-list">
+                    <li>
+                        <i class="fas fa-plus-circle"></i>
+                        <p>Nouveau projet <a href="#">"Rapport Annuel 2025"</a> créé.</p>
+                        <small>il y a 5 minutes</small>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <p>Tâche <a href="#">"Mettre à jour le SEO"</a> terminée par John Doe.</p>
+                        <small>il y a 30 minutes</small>
+                    </li>
+                    <li>
+                        <i class="fas fa-user-plus"></i>
+                        <p>Jane Smith a rejoint le projet <a href="#">"Application Mobile V2"</a>.</p>
+                        <small>il y a 1 heure</small>
+                    </li>
+                    <li>
+                        <i class="fas fa-comment-alt"></i>
+                        <p>Nouveau commentaire sur le projet <a href="#">"Refonte du Site Web"</a>.</p>
+                        <small>il y a 3 heures</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget card-calendar">
+                <h2><i class="fas fa-calendar-alt"></i> Calendrier</h2>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <span id="current-month">Mai 2025</span>
+                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+                    </div>
+                    <div class="calendar-dates" id="calendar-dates">
+                        </div>
+                </div>
+                <div class="upcoming-events">
+                    <h3><i class="fas fa-bell"></i> Événements à venir</h3>
+                    <div class="event-list" id="event-list">
+                        <div class="event-item">
+                            <span class="event-time">10:00</span>
+                            <div class="event-details">
+                                <p>Réunion d'équipe</p>
+                                <small>Salle 101, Projet : Interne</small>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <span class="event-time">14:00</span>
+                            <div class="event-details">
+                                <p>Présentation client</p>
+                                <small>Projet : Refonte Site Web</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2><i class="fas fa-plus-circle"></i> Nouveau Projet</h2>
+            <form id="newProjectForm" class="project-form">
+                <div class="form-group">
+                    <label for="projectName"><i class="fas fa-file-signature"></i> Nom du Projet</label>
+                    <input type="text" id="projectName" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectDescription"><i class="fas fa-align-left"></i> Description</label>
+                    <textarea id="projectDescription" name="projectDescription" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startDate"><i class="fas fa-calendar-alt"></i> Date de Début</label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate"><i class="fas fa-calendar-check"></i> Date d'Échéance</label>
+                        <input type="date" id="dueDate" name="dueDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectStatus"><i class="fas fa-info-circle"></i> Statut</label>
+                    <select id="projectStatus" name="projectStatus" required>
+                        <option value="pending">En attente</option>
+                        <option value="in-progress">En cours</option>
+                        <option value="completed">Terminé</option>
+                        <option value="on-hold">En pause</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-users"></i> Membres du Projet</label>
+                    <div class="selected-members" id="selectedMembers">
+                        <span class="placeholder">Aucun membre sélectionné</span>
+                    </div>
+                    <button type="button" class="btn-add-member" id="addMemberBtn"><i class="fas fa-user-plus"></i> Ajouter des Membres</button>
+                    <div class="members-dropdown" id="membersDropdown">
+                        <div class="member-item">
+                            <label>
+                                <input type="checkbox" value="John Doe" data-email="john@example.com">
+                                <span class="member-name">John Doe</span> <small>(john@example.com)</small>
+                            </label>
+                        </div>
+                        <div class="member-item">
+                            <label>
+                                <input type="checkbox" value="Jane Smith" data-email="jane@example.com">
+                                <span class="member-name">Jane Smith</span> <small>(jane@example.com)</small>
+                            </label>
+                        </div>
+                        <div class="member-item">
+                            <label>
+                                <input type="checkbox" value="Alice Johnson" data-email="alice@example.com">
+                                <span class="member-name">Alice Johnson</span> <small>(alice@example.com)</small>
+                            </label>
+                        </div>
+                        <div class="member-item">
+                            <label>
+                                <input type="checkbox" value="Bob Williams" data-email="bob@example.com">
+                                <span class="member-name">Bob Williams</span> <small>(bob@example.com)</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancelProjectBtn"><i class="fas fa-times"></i> Annuler</button>
+                    <button type="submit" class="btn-submit"><i class="fas fa-save"></i> Créer le projet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2><i class="fas fa-clipboard-check"></i> Nouvelle Tâche</h2>
+            <form id="newTaskForm" class="project-form"> <div class="form-group">
+                    <label for="taskName"><i class="fas fa-list-ul"></i> Nom de la Tâche</label>
+                    <input type="text" id="taskName" name="taskName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription"><i class="fas fa-align-left"></i> Description</label>
+                    <textarea id="taskDescription" name="taskDescription" rows="2"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskProject"><i class="fas fa-project-diagram"></i> Projet Associé</label>
+                        <select id="taskProject" name="taskProject">
+                            <option value="">Sélectionner un projet</option>
+                            <option value="Refonte du Site Web">Refonte du Site Web</option>
+                            <option value="Application Mobile V2">Application Mobile V2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDueDate"><i class="fas fa-calendar-alt"></i> Date d'Échéance</label>
+                        <input type="date" id="taskDueDate" name="taskDueDate">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskAssignedTo"><i class="fas fa-user-tag"></i> Assignée à</label>
+                    <select id="taskAssignedTo" name="taskAssignedTo">
+                        <option value="">Non assigné</option>
+                        <option value="John Doe">John Doe</option>
+                        <option value="Jane Smith">Jane Smith</option>
+                        <option value="Alice Johnson">Alice Johnson</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancelTaskBtn"><i class="fas fa-times"></i> Annuler</button>
+                    <button type="submit" class="btn-submit" id="saveTaskBtn"><i class="fas fa-save"></i> Créer la tâche</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>One Project</h3>
+                <p>Simplifiez la gestion de vos projets.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html" class="nav-active">À propos</a></li>
+                    <li><a href="contact.html" class="nav-active">Contactez-nous</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>One-project@gmail.com</p>
+                <p>+261 34 68 775 68</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 One Project. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
